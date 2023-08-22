@@ -9,13 +9,15 @@ import SwiftUI
 
 struct FullScreenPlayerView: View {
     @StateObject var viewModel = PlayerViewModel.shared
+    @State private var offset = CGSize.zero
     var namespace: Namespace.ID
 
     var body: some View {
         VStack(spacing: 10) {
             RoundedRectangle(cornerRadius: 3.5, style: .continuous)
                 .frame(width: 50, height: 7)
-                .foregroundColor(.black.opacity(0.3))
+                .foregroundColor(.white.opacity(0.3))
+                .padding(.top, 35)
                 .onTapGesture {
                     viewModel.dismissView()
                 }
@@ -24,9 +26,11 @@ struct FullScreenPlayerView: View {
 
             VStack {
                 Spacer()
-                Image("cover1")
+                Image(viewModel.trackCover)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: UIScreen.main.bounds.width * 0.85 - (viewModel.isPlaying ? 0 : 30), maxHeight: UIScreen.main.bounds.width * 0.85 - (viewModel.isPlaying ? 0 : 30))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                     .matchedGeometryEffect(id: "playerCover", in: namespace)
                     .padding(viewModel.isPlaying ? 0 : 30)
                 Spacer()
@@ -47,21 +51,39 @@ struct FullScreenPlayerView: View {
 
             VStack(spacing: 10) {
                 GeometryReader { proxy in
-                    ProgressSliderView(allowDragGesture: .constant(true), progressValue: $viewModel.playerProgress, widthOfParent: proxy.size.width)
+                    ProgressSliderView(
+                        allowDragGesture: .constant(true),
+                        progressValue: $viewModel.playerProgress,
+                        widthOfParent: proxy.size.width,
+                        updateCurrentTimeWithSlider: { value in
+                            viewModel.useTimerToReproducedTime(false)
+                            viewModel.updateTimeWithProgress(value)
+                        },
+                        sliderDidSlider: { value in
+                            viewModel.useTimerToReproducedTime(true)
+                            viewModel.goToSpecificTime(percentage: Float64(value))
+                        }
+                    )
                 }
+
+                HStack(alignment: .center) {
+                    Text(viewModel.timeReproduced ?? "0:00")
+                    Spacer()
+                    Text(viewModel.trackDuration)
+                }
+                .padding(.top, 20)
 
                 Spacer()
 
                 HStack(spacing: 30) {
                     Button {
-                        print("previous")
+                        viewModel.didTapBackward()
                     } label: {
                         Image("skip-previous-icon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.white)
                     }
-                    .frame(width: 60)
+                    .frame(width: 70, height: 70)
 
                     Button {
                         viewModel.playOrPause()
@@ -69,31 +91,28 @@ struct FullScreenPlayerView: View {
                         Image(viewModel.isPlaying ? "pause-icon" : "play-icon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.white)
                     }
-                    .frame(width: 60)
+                    .frame(width: 70, height: 70)
 
                     Button {
-                        print("previous")
+                        viewModel.didTapForward()
                     } label: {
                         Image("skip-next-icon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.white)
                     }
-                    .frame(width: 60)
+                    .frame(width: 70, height: 70)
                 }
 
                 Spacer()
 
                 HStack(spacing: 20) {
                     Image(systemName: "volume.1")
-                        .padding(.bottom, 5)
                     GeometryReader { proxy in
                         ProgressSliderView(allowDragGesture: .constant(true), progressValue: .constant(0.5), widthOfParent: proxy.size.width)
                     }
+                    .padding(.bottom, 28)
                     Image(systemName: "volume.3")
-                        .padding(.bottom, 5)
                 }
             }
             .padding(.horizontal, 30)
@@ -107,7 +126,7 @@ struct FullScreenPlayerView: View {
                     Image("cast-icon")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 25)
+                        .frame(width: 30)
                 }
                 .frame(width: 40, height: 40)
 
@@ -117,7 +136,7 @@ struct FullScreenPlayerView: View {
                     Image("airplay-icon")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 25)
+                        .frame(width: 30)
                 }
                 .frame(width: 40, height: 40)
 
@@ -127,21 +146,45 @@ struct FullScreenPlayerView: View {
                     Image("replay-icon")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 25)
+                        .frame(width: 30)
                 }
                 .frame(width: 40, height: 40)
             }
-            .foregroundColor(.white)
 
             Spacer()
         }
-        .foregroundColor(.white)
+        .foregroundColor(.white.opacity(0.7))
         .background {
             ZStack {
                 Image(viewModel.trackCover)
+                    .aspectRatio(contentMode: .fill)
                 VisualEffectView(effect: UIBlurEffect(style: .dark))
             }
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .frame(maxHeight: viewModel.showPlayerFullScreen ? UIScreen.main.bounds.height : 70)
             .ignoresSafeArea()
+        }
+        .offset(x: 0, y: offset.height)
+        .gesture(
+            DragGesture()
+                .onChanged { gesture in
+                    print(offset.height)
+                    offset = gesture.translation
+                }
+                .onEnded { gesture in
+                    dismissOrRestoreView(with: gesture.translation)
+                }
+        )
+    }
+
+    private func dismissOrRestoreView(with offset: CGSize) {
+        print(offset.height)
+        if offset.height > 150 {
+            viewModel.dismissView()
+        } else {
+            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.95, blendDuration: 0.95)){
+                self.offset = .zero
+            }
         }
     }
 }

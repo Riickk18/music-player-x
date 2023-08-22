@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB1403E12A849EDA00F5F2D0 /* loreen-tattoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AB1403DD2A849ED900F5F2D0 /* loreen-tattoo.mp3 */; };
+		AB1403E22A849EDA00F5F2D0 /* anja-nissen_where-i-am.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AB1403DE2A849EDA00F5F2D0 /* anja-nissen_where-i-am.mp3 */; };
+		AB1403E32A849EDA00F5F2D0 /* 5-seconds-of-summer-teeth-live_teeth.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AB1403DF2A849EDA00F5F2D0 /* 5-seconds-of-summer-teeth-live_teeth.mp3 */; };
+		AB1403E42A849EDA00F5F2D0 /* demi-lovato_tell-me-you-love-me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AB1403E02A849EDA00F5F2D0 /* demi-lovato_tell-me-you-love-me.mp3 */; };
 		AB42BCD02A57AAE000F86D93 /* ariana-grande_no-tears-left-to-cry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AB42BCCF2A57AADF00F86D93 /* ariana-grande_no-tears-left-to-cry.mp3 */; };
-		AB6ECABB2A550CBD005314CF /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ECABA2A550CBD005314CF /* TabBarView.swift */; };
 		AB6ECABE2A551068005314CF /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ECABD2A551068005314CF /* VisualEffectView.swift */; };
 		AB6ECAC22A551147005314CF /* NowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ECAC12A551147005314CF /* NowView.swift */; };
 		AB6ECAC52A55118A005314CF /* PromotedArtistCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ECAC42A55118A005314CF /* PromotedArtistCellView.swift */; };
@@ -23,6 +26,7 @@
 		AB6ECADA2A552F96005314CF /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ECAD92A552F96005314CF /* Collection+Extensions.swift */; };
 		AB6ECADD2A55302E005314CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ECADC2A55302E005314CF /* Constants.swift */; };
 		AB6ECADF2A5530CE005314CF /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ECADE2A5530CE005314CF /* Int+Extensions.swift */; };
+		ABD07EF42A5BA1AF00C1E64B /* DraggableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD07EF32A5BA1AF00C1E64B /* DraggableModifier.swift */; };
 		ABF46A2F2A54CD060034A766 /* Music_Player_XApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF46A2E2A54CD060034A766 /* Music_Player_XApp.swift */; };
 		ABF46A312A54CD060034A766 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF46A302A54CD060034A766 /* ContentView.swift */; };
 		ABF46A332A54CD070034A766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF46A322A54CD070034A766 /* Assets.xcassets */; };
@@ -51,8 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB1403DD2A849ED900F5F2D0 /* loreen-tattoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "loreen-tattoo.mp3"; sourceTree = "<group>"; };
+		AB1403DE2A849EDA00F5F2D0 /* anja-nissen_where-i-am.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "anja-nissen_where-i-am.mp3"; sourceTree = "<group>"; };
+		AB1403DF2A849EDA00F5F2D0 /* 5-seconds-of-summer-teeth-live_teeth.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5-seconds-of-summer-teeth-live_teeth.mp3"; sourceTree = "<group>"; };
+		AB1403E02A849EDA00F5F2D0 /* demi-lovato_tell-me-you-love-me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "demi-lovato_tell-me-you-love-me.mp3"; sourceTree = "<group>"; };
 		AB42BCCF2A57AADF00F86D93 /* ariana-grande_no-tears-left-to-cry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ariana-grande_no-tears-left-to-cry.mp3"; sourceTree = "<group>"; };
-		AB6ECABA2A550CBD005314CF /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		AB6ECABD2A551068005314CF /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		AB6ECAC12A551147005314CF /* NowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowView.swift; sourceTree = "<group>"; };
 		AB6ECAC42A55118A005314CF /* PromotedArtistCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotedArtistCellView.swift; sourceTree = "<group>"; };
@@ -67,6 +74,7 @@
 		AB6ECAD92A552F96005314CF /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		AB6ECADC2A55302E005314CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AB6ECADE2A5530CE005314CF /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		ABD07EF32A5BA1AF00C1E64B /* DraggableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableModifier.swift; sourceTree = "<group>"; };
 		ABF46A2B2A54CD060034A766 /* Music Player X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Player X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF46A2E2A54CD060034A766 /* Music_Player_XApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_Player_XApp.swift; sourceTree = "<group>"; };
 		ABF46A302A54CD060034A766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				AB42BCCF2A57AADF00F86D93 /* ariana-grande_no-tears-left-to-cry.mp3 */,
+				AB1403DF2A849EDA00F5F2D0 /* 5-seconds-of-summer-teeth-live_teeth.mp3 */,
+				AB1403DE2A849EDA00F5F2D0 /* anja-nissen_where-i-am.mp3 */,
+				AB1403E02A849EDA00F5F2D0 /* demi-lovato_tell-me-you-love-me.mp3 */,
+				AB1403DD2A849ED900F5F2D0 /* loreen-tattoo.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -161,6 +173,7 @@
 		AB6ECAD52A552F09005314CF /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				ABD07EF22A5BA19C00C1E64B /* Modifiers */,
 				AB6ECADB2A55301F005314CF /* Utilities */,
 				AB6ECAD82A552F1E005314CF /* Extensions */,
 			);
@@ -183,6 +196,14 @@
 				AB6ECADC2A55302E005314CF /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		ABD07EF22A5BA19C00C1E64B /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				ABD07EF32A5BA1AF00C1E64B /* DraggableModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		ABF46A222A54CD060034A766 = {
@@ -211,8 +232,8 @@
 				AB6ECAD52A552F09005314CF /* Commons */,
 				ABF46A592A54CD4E0034A766 /* Model */,
 				ABF46A582A54CD480034A766 /* View */,
-				ABF46A2E2A54CD060034A766 /* Music_Player_XApp.swift */,
 				ABF46A302A54CD060034A766 /* ContentView.swift */,
+				ABF46A2E2A54CD060034A766 /* Music_Player_XApp.swift */,
 				ABF46A322A54CD070034A766 /* Assets.xcassets */,
 				AB42BCCE2A57AAB500F86D93 /* Resources */,
 				ABF46A342A54CD070034A766 /* Preview Content */,
@@ -251,7 +272,6 @@
 				AB6ECAC02A551121005314CF /* TabViews */,
 				AB6ECABF2A551117005314CF /* Player */,
 				AB6ECABC2A551053005314CF /* ReusableViews */,
-				AB6ECABA2A550CBD005314CF /* TabBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,8 +390,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB1403E12A849EDA00F5F2D0 /* loreen-tattoo.mp3 in Resources */,
 				ABF46A362A54CD070034A766 /* Preview Assets.xcassets in Resources */,
+				AB1403E42A849EDA00F5F2D0 /* demi-lovato_tell-me-you-love-me.mp3 in Resources */,
 				ABF46A332A54CD070034A766 /* Assets.xcassets in Resources */,
+				AB1403E22A849EDA00F5F2D0 /* anja-nissen_where-i-am.mp3 in Resources */,
+				AB1403E32A849EDA00F5F2D0 /* 5-seconds-of-summer-teeth-live_teeth.mp3 in Resources */,
 				AB42BCD02A57AAE000F86D93 /* ariana-grande_no-tears-left-to-cry.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,9 +430,9 @@
 				ABF46A312A54CD060034A766 /* ContentView.swift in Sources */,
 				AB6ECAD72A552F1A005314CF /* URLSession+Extensions.swift in Sources */,
 				AB6ECAD42A552E5F005314CF /* PlayerViewModel.swift in Sources */,
-				AB6ECABB2A550CBD005314CF /* TabBarView.swift in Sources */,
 				AB6ECAC52A55118A005314CF /* PromotedArtistCellView.swift in Sources */,
 				ABF46A2F2A54CD060034A766 /* Music_Player_XApp.swift in Sources */,
+				ABD07EF42A5BA1AF00C1E64B /* DraggableModifier.swift in Sources */,
 				AB6ECAC72A55164B005314CF /* Artist.swift in Sources */,
 				AB6ECAD22A55260D005314CF /* ProgressSliderView.swift in Sources */,
 				AB6ECAC22A551147005314CF /* NowView.swift in Sources */,

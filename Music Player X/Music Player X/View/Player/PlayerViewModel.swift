@@ -17,19 +17,68 @@ class PlayerViewModel: NSObject, ObservableObject {
     @Published var showPlayerFullScreen: Bool = false
     @Published var showQueueView: Bool = false
     @Published var tracks: [Track] = {
-        guard let url = Bundle.main.url(forResource: "ariana-grande_no-tears-left-to-cry", withExtension: "mp3") else { return [] }
+        guard let track1URL = Bundle.main.url(forResource: "ariana-grande_no-tears-left-to-cry", withExtension: "mp3"),
+              let track2URL = Bundle.main.url(forResource: "5-seconds-of-summer-teeth-live_teeth", withExtension: "mp3"),
+              let track3URL = Bundle.main.url(forResource: "anja-nissen_where-i-am", withExtension: "mp3"),
+              let track4URL = Bundle.main.url(forResource: "demi-lovato_tell-me-you-love-me", withExtension: "mp3"),
+              let track5URL = Bundle.main.url(forResource: "loreen-tattoo", withExtension: "mp3")
+        else { return [] }
         return [
             Track(
-                name: "Have nothing",
-                album: "Troubles of life",
-                cover: "cover1",
+                name: "No Tears Left To Cry",
+                album: "No Tears Left To Cry",
+                cover: "no-tears-left-to-cry",
                 artist: Artist(
                     name: "Ariana Grande",
                     image: "ariana-grande",
                     tracks: []
                 ),
-                url: url
-            )
+                url: track1URL
+            ),
+            Track(
+                name: "Teeth",
+                album: "End Summer",
+                cover: "5-seconds-of-the-summer",
+                artist: Artist(
+                    name: "5 Seconds Of The Summer",
+                    image: "5-seconds-of-the-summer",
+                    tracks: []
+                ),
+                url: track2URL
+            ),
+            Track(
+                name: "Where I Am",
+                album: "Eurovision",
+                cover: "where-i-am",
+                artist: Artist(
+                    name: "Anja Nissen",
+                    image: "where-i-am",
+                    tracks: []
+                ),
+                url: track3URL
+            ),
+            Track(
+                name: "Tell Me You Love Me",
+                album: "Tell Me You Love Me",
+                cover: "tell-me-you-love-me",
+                artist: Artist(
+                    name: "Ariana Grande",
+                    image: "ariana-grande",
+                    tracks: []
+                ),
+                url: track4URL
+            ),
+            Track(
+                name: "Tatto",
+                album: "Eurovision",
+                cover: "tatto",
+                artist: Artist(
+                    name: "Loreen",
+                    image: "tatto",
+                    tracks: []
+                ),
+                url: track5URL
+            ),
         ]
     }()
     @Published var currentTrackIndex = 0
@@ -39,7 +88,7 @@ class PlayerViewModel: NSObject, ObservableObject {
     // MARK: - Playing status
     @Published var isPlaying: Bool = false
     @Published var playerProgress: Double = 0.0
-    @Published var timeReproduced: String = ""
+    @Published var timeReproduced: String?
     @Published var trackDuration: String = "0:00"
 
     // MARK: - Buttons status
@@ -90,7 +139,8 @@ class PlayerViewModel: NSObject, ObservableObject {
         configureAirplayEnviroment()
         setupRemoteTransportControls()
         configureListeners()
-        prependToQueue(track: tracks.first)
+        loadQueuePlayerItems()
+//        prependToQueue(track: tracks.first)
     }
 
     private func configureListeners() {

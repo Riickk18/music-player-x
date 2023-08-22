@@ -15,10 +15,12 @@ struct CompactPlayerView: View {
         HStack(spacing: 10) {
             Image(viewModel.trackCover)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 56, height: 56)
                 .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
                 .matchedGeometryEffect(id: "playerCover", in: namespace)
-                .padding(7)
+                .padding(.vertical, 7)
+                .padding(.leading, 7)
 
             VStack(alignment: .leading) {
                 Text(viewModel.trackName)
@@ -35,7 +37,7 @@ struct CompactPlayerView: View {
 
             HStack {
                 Button {
-                    print("previous")
+                    viewModel.didTapBackward()
                 } label: {
                     Image("skip-previous-icon")
                         .resizable()
@@ -55,7 +57,7 @@ struct CompactPlayerView: View {
                 .frame(width: 40)
 
                 Button {
-                    print("previous")
+                    viewModel.didTapForward()
                 } label: {
                     Image("skip-next-icon")
                         .resizable()
@@ -70,15 +72,16 @@ struct CompactPlayerView: View {
         .frame(maxWidth: .infinity)
         .background{
             ZStack {
-                Image("cover1")
+                Image(viewModel.trackCover)
                 VisualEffectView(effect: UIBlurEffect(style: .dark))
+            }
+            .onTapGesture {
+                viewModel.showFullScreen()
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+        .contentShape(Rectangle())
         .padding(.horizontal, 10)
-        .onTapGesture {
-            viewModel.showFullScreen()
-        }
     }
 }
 

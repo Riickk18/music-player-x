@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = PlayerViewModel.shared
+    @Namespace var namespace
+    
     var body: some View {
-        TabBarView()
+        VStack {
+            if viewModel.showPlayerFullScreen {
+                FullScreenPlayerView(namespace: namespace)
+            } else {
+                Spacer()
+                CompactPlayerView(namespace: namespace)
+            }
+        }
     }
 }
 
