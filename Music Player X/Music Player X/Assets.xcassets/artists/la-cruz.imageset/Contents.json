@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "la-cruz.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
